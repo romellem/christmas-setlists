@@ -6,42 +6,71 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Christmas Setlist - 2023</title>
     <style>
+        :root {
+            --background-color: rgb(253, 253, 253);
+            --text-color: #333;
+            --link-color: #226f54;
+            --link-hover-color: #2B8C6A;
+            --sticky-bg-color: rgba(253, 253, 253, 0.9);
+            --darkmode-toggle-size: 4rem;
+        }
+    
+        [data-theme="dark"] {
+            --background-color: #1e1e1e;
+            --text-color: #ddd;
+            --link-color: #87C38F;
+            --link-hover-color: #AED6B3;
+            --sticky-bg-color: rgba(30, 30, 30, 0.9);
+        }
+    
         html {
             font-family: sans-serif;
             font-size: 18px;
             line-height: 1.5;
-
-            color: #333;
-            background-color: rgb(253, 253, 253); /* #fdfdfd; */
+            color: var(--text-color);
+            background-color: var(--background-color);
         }
-
+    
         body {
-            padding: 1em;
+            /* 2em right padding for darkmode toggle */
+            padding: 1em 2em 1em 1em;
             margin: 0 auto;
             max-width: 720px;
         }
-
+    
         h2 {
             position: -webkit-sticky;
             position: sticky;
             top: 0;
             padding: 0.5em 0;
-            background: rgba(253, 253, 253, 0.9);
+            background: var(--sticky-bg-color);
         }
-
+    
         ol, li {
             font-size: 14px;
         }
-
+    
         li {
             padding: 0.25em;
         }
-
+    
         a {
             margin: -0.25em;
             padding: 0.25em;
         }
+
+        a:link,
+        a:visited,
+        a:active {
+            color: var(--link-color);
+        }
+    
+        a:hover {
+            color: var(--link-hover-color);
+        }
+
     </style>
+    
 </head>
 <body>
     <h1>Wade Family Christmas - 2023 🎄</h1>
@@ -49,6 +78,10 @@
         <li><a href="#song1">Song 1</a></li>
         <li><a href="#song2">Song 2</a></li>
     </ol>
+
+
+      <button id="theme-toggle">Toggle Dark Mode</button>
+
 
     <section>
         <h2 id="song1">Song</h2>
@@ -69,5 +102,16 @@
         Lyrics 3<br>
         Lyrics 4
     </section>
+
+    <script>
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            if (document.documentElement.getAttribute('data-theme') === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        });
+    </script>
+    
 </body>
 </html>
